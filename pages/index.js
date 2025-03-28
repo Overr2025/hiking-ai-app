@@ -12,6 +12,24 @@ const Marker = dynamic(() => import("react-leaflet").then(m => m.Marker), { ssr:
 const Popup = dynamic(() => import("react-leaflet").then(m => m.Popup), { ssr: false });
 const Polyline = dynamic(() => import("react-leaflet").then(m => m.Polyline), { ssr: false });
 
+function MapUpdaterClient({ routeCoords }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (routeCoords.length > 0) {
+      const bounds = routeCoords.map(c => [c[0], c[1]]);
+      map.fitBounds(bounds);
+    }
+  }, [routeCoords]);
+
+  return null;
+}
+
+function useMap() {
+  if (typeof window === 'undefined') return { fitBounds: () => {} };
+  return require("react-leaflet").useMap();
+}
+
 export default function HikingApp() {
   const [target, setTarget] = useState("");
   const [difficulty, setDifficulty] = useState("");
@@ -109,20 +127,6 @@ export default function HikingApp() {
       return [];
     }
   };
-
-  function MapUpdaterClient({ routeCoords }) {
-    const { useMap } = require("react-leaflet");
-    const map = useMap();
-
-    useEffect(() => {
-      if (routeCoords.length > 0) {
-        const bounds = routeCoords.map(c => [c[0], c[1]]);
-        map.fitBounds(bounds);
-      }
-    }, [routeCoords]);
-
-    return null;
-  }
 
   const downloadGPX = () => {
     if (routeCoords.length === 0) return;
