@@ -5,7 +5,6 @@ import "leaflet/dist/leaflet.css";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
-import { useMap as leafletUseMap } from "react-leaflet";
 
 const MapContainer = dynamic(() => import("react-leaflet").then(m => m.MapContainer), { ssr: false });
 const TileLayer = dynamic(() => import("react-leaflet").then(m => m.TileLayer), { ssr: false });
@@ -13,13 +12,9 @@ const Marker = dynamic(() => import("react-leaflet").then(m => m.Marker), { ssr:
 const Popup = dynamic(() => import("react-leaflet").then(m => m.Popup), { ssr: false });
 const Polyline = dynamic(() => import("react-leaflet").then(m => m.Polyline), { ssr: false });
 
-function MapUpdaterClient({ routeCoords }) {
-  let map;
-  try {
-    map = leafletUseMap();
-  } catch (e) {
-    return null;
-  }
+const MapUpdaterClient = dynamic(() => Promise.resolve(function MapUpdaterClient({ routeCoords }) {
+  const { useMap } = require("react-leaflet");
+  const map = useMap();
 
   useEffect(() => {
     if (routeCoords.length > 0 && map) {
@@ -29,7 +24,7 @@ function MapUpdaterClient({ routeCoords }) {
   }, [routeCoords]);
 
   return null;
-}
+}), { ssr: false });
 
 export default function HikingApp() {
   const [target, setTarget] = useState("");
