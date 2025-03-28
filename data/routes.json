@@ -1,0 +1,46 @@
+[
+  {
+    "goal": "Triglav",
+    "difficulty": "zahtevna",
+    "places": [
+      "Rudno polje",
+      "Planina Konjščica",
+      "Vodnikov dom",
+      "Konjsko sedlo",
+      "Dom Planika",
+      "Mali Triglav",
+      "Triglav"
+    ],
+    "description": "Klasični uspon na Triglav preko Vodnikovega doma i Planike. Najčešće korišćena ruta s Pokljuke."
+  },
+  {
+    "goal": "Mangart",
+    "difficulty": "lahka",
+    "places": [
+      "Mangartsko sedlo",
+      "Mangart"
+    ],
+    "description": "Najkraći i najlakši pristup Mangartu iz Mangartskog sedla. Pogodno za brze izlete s dobrim vremenskim uslovima."
+  },
+  {
+    "goal": "Stol",
+    "difficulty": "zahtevna",
+    "places": [
+      "Valvasorjev dom",
+      "Zabreška planina",
+      "Prešernova koča",
+      "Stol"
+    ],
+    "description": "Zahtevniji uspon na Stol sa prelepim pogledima na Karavanke."
+  },
+  {
+    "goal": "Krn",
+    "difficulty": "lahka",
+    "places": [
+      "Drežnica",
+      "Planina Kuhinja",
+      "Krn"
+    ],
+    "description": "Lep i postepen uspon iznad Drežnice do vrha Krna, sa otvorenim pogledima na Soču i okolinu."
+  }
+]
