@@ -1,8 +1,8 @@
-// components/MapUpdaterClient.js
+"use client";
 import { useEffect } from "react";
 import { useMap } from "react-leaflet";
 
-export function MapUpdaterClient({ routeCoords }) {
+export default function MapUpdaterClient({ routeCoords }) {
   const map = useMap();
 
   useEffect(() => {
