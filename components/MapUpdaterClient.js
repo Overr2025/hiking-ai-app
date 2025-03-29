@@ -1,5 +1,4 @@
-"use client";
-
+// components/MapUpdaterClient.js
 import { useEffect } from "react";
 import { useMap } from "react-leaflet";
 
